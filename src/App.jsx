@@ -16,6 +16,7 @@ function App() {
   }
   useEffect(() => {
     handleCount();
+    handelReset();
   }, []);
 
 
@@ -32,6 +33,10 @@ function App() {
       return newCount;
     });
   };
+
+  const handelReset = () => {
+    setCount(0);
+  }
 
 
 
@@ -56,6 +61,7 @@ function App() {
             -
           </button>
         </div>
+        <button onClick={handelReset}>Reset</button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>

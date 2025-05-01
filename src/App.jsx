@@ -22,16 +22,16 @@ function App() {
 
   const handleCount = () => {
     const oldCount = JSON.parse(localStorage.getItem("count"))
-    setCount(oldCount) 
+    setCount(oldCount)
   }
 
   const handleDecrement = () => {
-    setCount((count) => {
-      let newCount = count - 1;
-      localStorage.setItem("count", JSON.stringify(newCount))
-      setCount(newCount);
-    })
-  }
+    setCount(prevCount => {
+      const newCount = prevCount > 0 ? prevCount - 1 : 0;
+      localStorage.setItem("count", JSON.stringify(newCount));
+      return newCount;
+    });
+  };
 
 
 
